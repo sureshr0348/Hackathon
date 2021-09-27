@@ -1,41 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Smoke_Suite]" guice-stage="DEVELOPMENT">
-  <listeners>
-    <listener class-name="tests.ExtentReport"/>
-  </listeners>
-  <test thread-count="5" name="Smoke_Test(failed)">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
       <class name="tests.TS_CourseSearch">
         <methods>
-          <include name="TC_FilterLevel"/>
           <include name="openWebsite"/>
-          <include name="TC_CourseDuration"/>
-          <include name="TC_FilterLanguage"/>
+          <include name="TC_SearchTextBox"/>
           <include name="exitBrowser"/>
-          <include name="TC_CourseAvailability"/>
           <include name="TC_initiateCourse"/>
         </methods>
       </class> <!-- tests.TS_CourseSearch -->
-      <class name="tests.TS_Filter">
-        <methods>
-          <include name="languagesDisplayed"/>
-          <include name="extractLanguageDetails"/>
-          <include name="openWebsite"/>
-          <include name="levelsDisplayed"/>
-          <include name="exitBrowser"/>
-          <include name="TC_initiateClasses"/>
-          <include name="extractLevelsDetails"/>
-        </methods>
-      </class> <!-- tests.TS_Filter -->
-      <class name="tests.TS_FormFillupValid">
-        <methods>
-          <include name="openWebsite"/>
-          <include name="TC_initiateCourse"/>
-          <include name="TC_validData"/>
-          <include name="exitBrowser"/>
-        </methods>
-      </class> <!-- tests.TS_FormFillupValid -->
     </classes>
-  </test> <!-- Smoke_Test(failed) -->
-</suite> <!-- Failed suite [Smoke_Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
