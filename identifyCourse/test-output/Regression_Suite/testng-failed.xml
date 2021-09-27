@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Regression_Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="tests.ExtentReport"/>
+  </listeners>
+  <test thread-count="5" name="Regresion_Test(failed)">
+    <classes>
+      <class name="tests.TS_FormFillupInvalid">
+        <methods>
+          <include name="TC_wrongData1"/>
+          <include name="TC_wrongData2"/>
+          <include name="TC_wrongData5"/>
+          <include name="TC_wrongData3"/>
+          <include name="TC_InvalidEmail"/>
+          <include name="TC_wrongData6"/>
+          <include name="openWebsite"/>
+          <include name="TC_wrongData9"/>
+          <include name="TC_wrongData4"/>
+          <include name="TC_wrongData7"/>
+          <include name="TC_wrongData8"/>
+          <include name="exitBrowser"/>
+        </methods>
+      </class> <!-- tests.TS_FormFillupInvalid -->
+    </classes>
+  </test> <!-- Regresion_Test(failed) -->
+</suite> <!-- Failed suite [Regression_Suite] -->

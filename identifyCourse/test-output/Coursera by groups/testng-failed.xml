@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Coursera by groups]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="GRP-Regression_Testing(failed)">
+    <groups>
+      <run>
+        <include name="Regression_Testing"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="tests.TS_FormFillupInvalid">
+        <methods>
+          <include name="TC_noData6"/>
+          <include name="TC_noData3"/>
+          <include name="TC_noData5"/>
+          <include name="TC_noData7"/>
+          <include name="TC_noData4"/>
+          <include name="TC_InvalidEmail"/>
+          <include name="TC_wrongData"/>
+          <include name="TC_noData8"/>
+          <include name="TC_noData2"/>
+          <include name="TC_noData1"/>
+        </methods>
+      </class> <!-- tests.TS_FormFillupInvalid -->
+      <class name="tests.TS_FormFillupValid">
+        <methods>
+          <include name="TC_validData"/>
+        </methods>
+      </class> <!-- tests.TS_FormFillupValid -->
+    </classes>
+  </test> <!-- GRP-Regression_Testing(failed) -->
+</suite> <!-- Failed suite [Coursera by groups] -->
