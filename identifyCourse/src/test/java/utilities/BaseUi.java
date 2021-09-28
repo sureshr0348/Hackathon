@@ -100,7 +100,7 @@ public class BaseUi {
 	 * Method to wait till element is click-able
 	 */
 	public void waitElementClickable(String elementXpath) {
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementXpath)));
 	}
 
@@ -116,7 +116,7 @@ public class BaseUi {
 
 		// Now you can do whatever you need to do with it, for example copy somewhere
 		try {
-			FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir") + "/Screenshots/" + fileName));
+			FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir") + "/Screenshots/" + fileName + ".png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

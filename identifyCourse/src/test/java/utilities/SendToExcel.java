@@ -19,14 +19,14 @@ import org.openqa.selenium.WebElement;
 public class SendToExcel extends BaseUi{
 
 	// Creating WorkBook
-	static XSSFWorkbook workbook = new XSSFWorkbook();
+	static	XSSFWorkbook workbook = new XSSFWorkbook();
 
 	/*
 	 * Send Data to Excel
 	 */
 	public static void sendData(LinkedHashMap<String, String> filterMap, String sheetName, String colHeading1,
 			String colHeading2) throws IOException {
-
+		
 		// Creating Sheet
 		XSSFSheet sheet = workbook.createSheet(sheetName);
 
@@ -75,11 +75,13 @@ public class SendToExcel extends BaseUi{
 		try {
 
 			// Giving file path and name
-			writefile = new FileOutputStream(System.getProperty("user.dir") + "/Output.xlsx");
+			writefile = new FileOutputStream(System.getProperty("user.dir") + "/Output/Output.xlsx");
 			workbook.write(writefile);
 
 			// If file created successfully, prompting the message in the console
 			System.out.println(sheetName + " sheet created successfully\n\n");
+			
+			writefile.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -91,6 +93,7 @@ public class SendToExcel extends BaseUi{
 	public static void sendData(List<WebElement> courseName, List<WebElement> courseRating, String[] duration,
 		
 		String sheetName, String colHeading1, String colHeading2, String colHeading3) throws IOException {
+		
 		
 		XSSFSheet sheet = workbook.createSheet(sheetName);
 
@@ -134,12 +137,14 @@ public class SendToExcel extends BaseUi{
 		try {
 
 			// Giving file path and name
-			writefile = new FileOutputStream(System.getProperty("user.dir") + "/Output.xlsx");
+			writefile = new FileOutputStream(System.getProperty("user.dir") + "/Output/Output.xlsx");
 			workbook.write(writefile);
 
 			// If file created successfully, prompting the message in the console
 			System.out.println("File created successfully");
 			System.out.println("************************************************************");
+			
+			writefile.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

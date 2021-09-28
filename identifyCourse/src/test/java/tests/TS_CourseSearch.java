@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import functionalities.CourseDetailsFunctionality;
 
-public class TS_CourseSearch	extends BaseClass {
+public class TS_CourseSearch extends BaseClass {
 	
 	public CourseDetailsFunctionality details;
 	
@@ -16,29 +16,25 @@ public class TS_CourseSearch	extends BaseClass {
 	@Test(priority=1)
 	public void TC_SearchTextBox() {
 		details.search("Web Development");
+		details.searchClick();
 	}
 	
 	@Test(priority=2)
-	public void TC_SearchButtonClickable() {
-		details.searchClick();
-	}
-
-	@Test(priority=3)
 	public void TC_FilterLanguage() {
 		details.filterLanguage("English");
 	}
 	
-	@Test(priority=4)
+	@Test(priority=3)
 	public void TC_FilterLevel() {
 		details.filterLevel("Beginner");
 	}
 	
-	@Test(priority=5)
+	@Test(priority=4)
 	public void TC_CourseAvailability(){
 		details.getCourseDetails(2);
 	}
 	
-	@Test(priority=6)
+	@Test(priority=5)
 	public void TC_CourseDuration() {
 		details.getCourseDuration(2);
 	}

@@ -20,7 +20,7 @@ public class FilterFunctionality extends BaseUi {
 
         // Find SHOW ALL element and click it
         waitElementClickable(config.getProperty("showAll"));
-        waitElementClickable(config.getProperty("showAll"));
+
         Boolean present = false;
         WebElement display = driver.findElement(By.xpath(config.getProperty("showAll")));
         present = display.isDisplayed();
@@ -36,8 +36,6 @@ public class FilterFunctionality extends BaseUi {
     public void extractLanguageDetails() {
         // Create lists of filter names and number of courses in it
 
- 
-
         List<WebElement> languages = driver.findElements(By.xpath(config.getProperty("languageList")));
         List<WebElement> langCounts = driver.findElements(By.xpath(config.getProperty("languageListCount")));
 
@@ -51,9 +49,6 @@ public class FilterFunctionality extends BaseUi {
         // Convert list to map, to store in excel file
         languageMap = ConvertToMap.convert(languages, langCounts);
         try {
-
- 
-
             // Send all the data to excel
             // Parameters: Data_To_Be_Sent_From, SheetName, Column1_Heading, Column2_Heading
             SendToExcel.sendData(languageMap, "Language", "LANGUAGE NAME", "INDIVIDUAL COURSE COUNT");

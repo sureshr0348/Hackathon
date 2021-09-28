@@ -17,36 +17,50 @@ public class CourseDetailsFunctionality extends BaseUi{
 	public ArrayList<String> tabsGUId;
 	public List<WebElement> courseName;
 	public List<WebElement> courseRating;
+	public List<WebElement> courses;
+	
+	
 	
 	/*
-	 * Working with Search Bar
+	 * Search the String passed using the Search bar
 	 */
 	public void search(String testData) {
-    	
-		waitElementClickable(config.getProperty("search"));
-		driver.findElement(By.xpath(config.getProperty("search"))).clear();
-		driver.findElement(By.xpath(config.getProperty("search"))).sendKeys(testData);
+		String searchLocator = config.getProperty("search");
+		waitElementClickable(searchLocator);
+		driver.findElement(By.xpath(searchLocator)).clear();
+		driver.findElement(By.xpath(searchLocator)).sendKeys(testData);
 		snap("Search");
 	}
-	
+	/*
+	 * Click on Search button and take screenshot of the search results
+	 */
 	public void searchClick() {
 		driver.findElement(By.xpath(config.getProperty("searchButton"))).click();
-		pageLoad(60);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		snap("SearchResults");
 	}
 	
+	
+	
 	/*
-	 * Working with Filter Language criteria
+	 * Working with Language Dropdown filter
 	 */
 	public void filterLanguage(String language) {
-		pageLoad(60);
+		//Working with Language Drop Down box
+		String languageDropDown = config.getProperty("languageDrop");
+		waitElementClickable(languageDropDown);
+		driver.findElement(By.xpath(languageDropDown)).click();
 		
-		// Working with Language Checkbox
-		new WebDriverWait(driver, 60).until(ExpectedConditions.elementToBeClickable(By.xpath(config.getProperty("languageDrop")))).click();
 		driver.findElement(By.xpath(config.getProperty("showAll"))).click();
+		
 		//Select the language
 		List<WebElement> languages = driver.findElements(By.xpath(config.getProperty("languageList")));
 		snap("Language List");
-		for (WebElement i : languages) {
+		for (WebElement i : languages.subList(9, languages.size())) {
 			String choice=i.getAttribute("value");
 			if(choice.equalsIgnoreCase(language)) {
 					i.click();
@@ -55,6 +69,8 @@ public class CourseDetailsFunctionality extends BaseUi{
 		}
 		driver.findElement(By.xpath(config.getProperty("languageClose"))).click(); //Close language lists checkbox
 	}
+	
+	
 	
 	/*
 	 * Working with Filter Level criteria
@@ -77,41 +93,50 @@ public class CourseDetailsFunctionality extends BaseUi{
 	}
 	
 	
+	
+	
 	/*
 	 * Collecting details of 'n' number of courses
 	 */
 	public void getCourseDetails(int courseNo) {
-		pageLoad(60);
 		new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath(config.getProperty("courseNames"))));
 		JavascriptExecutor js1 = (JavascriptExecutor) driver;
 		js1.executeScript("window.scrollBy(0,300)");
 		snap("CourseList");
+		
 		courseName=driver.findElements(By.xpath(config.getProperty("courseNames")));
 		courseRating=driver.findElements(By.xpath(config.getProperty("courseRating")));
+		courses = driver.findElements(By.xpath(config.getProperty("courses")));
 		
 	}
 	
 	public void getCourseDuration(int courseNo) {
 		int tabNumber=0;
-		String[] duration=new String [courseNo]; //take it above
+		String[] duration=new String [courseNo];
 		
 		//Collecting course duration
 		for (int i=0;i<courseNo;i++) {
-			new WebDriverWait(driver, 60).until(ExpectedConditions.elementToBeClickable(courseName.get(i))).click();
+			new WebDriverWait(driver, 60).until(ExpectedConditions.elementToBeClickable(courses.get(i))).click();
+			
 			System.out.println("\n"+(i+1)+". "+courseName.get(i).getText());
+			
 			System.out.println("   Rating: "+ courseRating.get(i).getText());
+			
 			tabsGUId = new ArrayList<String>(driver.getWindowHandles());
+			
 			driver.switchTo().window(tabsGUId.get(++tabNumber));	
-			pageLoad(60);
-			duration[i] = driver.findElement(By.xpath(config.getProperty("courseDuration"))).getText();
+			
+			duration[i] = driver.findElement(By.cssSelector(config.getProperty("courseDuration"))).getText();
+			
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,700)");
-			snap("Course page("+i+")");
+			snap("Course page("+ (i+1) +")");
+			
 			System.out.println("   "+duration[i]);
 			driver.close();
+			
 			tabNumber--;
 			driver.switchTo().window(tabsGUId.get(tabNumber));
-			
 		}
 		
 		try {

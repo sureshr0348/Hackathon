@@ -1,12 +1,13 @@
 package functionalities;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-//import java.util.Iterator;
-//import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,59 +15,34 @@ import org.openqa.selenium.support.ui.Select;
 //import org.testng.annotations.DataProvider;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import utilities.*;
+import utilities.BaseUi;
+import utilities.Input;
 
 public class FormFillingFunctionality extends BaseUi {
 	
 	/*
-	 * Identifying whether Drop down appears or not and acting accordingly 
+	 * Navigate to the Form filling page
 	 */
-	public void getCourse() {
+	public void navigateForm()
+	{
+		driver.findElement(By.xpath(config.getProperty("enterpriseLink"))).click();
+		snap("Enterprise Page");
 		
-		driver.manage().timeouts().implicitlyWait(0, TimeUnit.MILLISECONDS);
-		boolean dropDown = driver.findElements(By.xpath(config.getProperty("enterpriseLink"))).size() != 0;
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-
-		if (dropDown) {
-
-			driver.findElement(By.xpath(config.getProperty("enterpriseLink"))).click();
-			pageLoad(20);
-            WebDriverWait wait = new WebDriverWait(driver, 20);
-            wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Product")));
-            WebElement productlink = driver.findElement(By.linkText("Product"));
-            snap("Product");
-			Actions action = new Actions(driver);
-			action.moveToElement(productlink).build().perform();
-			WebElement forcampuslink = driver.findElement(By.xpath(config.getProperty("campusLink")));
-			snap("Product dropdown");
-			forcampuslink.click();
-		} else {
-			WebElement course = driver.findElement(By.xpath(config.getProperty("enterpriseDropDown")));
-			snap("Enterprise Dropdown");
-			Actions action1 = new Actions(driver);
-			action1.moveToElement(course).build().perform();
-
-			// for testing purposes
-			pageLoad(3);
-			driver.findElement(By.xpath(config.getProperty("forCampus"))).click();
-			snap("For Campus");
+		WebElement course = driver.findElement(By.linkText("Products"));
+		Actions action1 = new Actions(driver);
+		action1.moveToElement(course).build().perform();
+		
+		new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.linkText("For Campus"))).click();
+		
+		int tabNumber = 0;
+		ArrayList<String> tabsGUId = new ArrayList<String>(driver.getWindowHandles());
+		
+		if (tabsGUId.size() > 1) {
+			driver.switchTo().window(tabsGUId.get(++tabNumber));
 		}
 	}
 	
-	public void navigateForm()
-	{
-		pageLoad(60);
-
-		int tabNumber = 0;
-		ArrayList<String> tabsGUId = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tabsGUId.get(++tabNumber));
-
-		pageLoad(60);
-
-		pageLoad(60);
-		driver.findElement(By.xpath(config.getProperty("startFree"))).click();
-		driver.findElement(By.xpath(config.getProperty("contactSales"))).click();
-	}
+	
 	/*
 	 * Setting form values
 	 */
@@ -74,46 +50,105 @@ public class FormFillingFunctionality extends BaseUi {
 		Input in = new Input();
 		int column = 0;
 		
-		// for testing purposes
-		pageLoad(60);
-		driver.findElement(By.xpath("//input[@id='FirstName']")).sendKeys(in.ReadExcelData(row, column++));
-		driver.findElement(By.xpath("//input[@id='LastName']")).sendKeys(in.ReadExcelData(row, column++));
-		Select jf = new Select(driver.findElement(By.xpath("//select[@id='C4C_Job_Title__c']")));
-		jf.selectByIndex(1);
-		driver.findElement(By.xpath("//input[@id='Title']")).sendKeys(in.ReadExcelData(row, column++));
-		driver.findElement(By.xpath("//input[@id='Email']")).sendKeys(in.ReadExcelData(row, column++));
-
-		driver.findElement(By.xpath("//input[@id='Phone']")).sendKeys(in.ReadExcelData(row, column++));
-		driver.findElement(By.xpath("//input[@id='Company']")).sendKeys(in.ReadExcelData(row, column++));
-		driver.findElement(By.xpath("//input[@id='Institution_URL__c']")).sendKeys(in.ReadExcelData(row, column++));
-
-		Select il = new Select(driver.findElement(By.xpath("//*[@id=\"Institution_Level__c\"]")));
-		il.selectByIndex(1);
-		driver.findElement(By.xpath(config.getProperty("NoOfLearners"))).sendKeys(in.ReadExcelData(row, column++));
-		Select con = new Select(driver.findElement(By.xpath("//select[@id='Country']")));
-		con.selectByVisibleText(in.ReadExcelData(row, column));
-		Select st = new Select(driver.findElement(By.xpath("//*[@id=\"State\"]")));
-		st.selectByIndex(2);
-		snap("Details");
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		// First name
+		driver.findElement(By.xpath(config.getProperty("firstName"))).sendKeys(in.ReadExcelData(row, column++)); //1
+		
+		//Last Name
+		driver.findElement(By.xpath(config.getProperty("lastName"))).sendKeys(in.ReadExcelData(row, column++)); //2
+		
+		//Job Function
+		Select jf = new Select(driver.findElement(By.xpath(config.getProperty("jobFunction"))));
+		String jfText = in.ReadExcelData(row, column++); //3
+		if (jfText != "") {
+			jf.selectByVisibleText(jfText);
 		}
-		pageLoad(60);
-		driver.findElement(By.xpath(config.getProperty("T&C"))).click();
+		
+		//Job Title
+		driver.findElement(By.xpath(config.getProperty("jobTitle"))).sendKeys(in.ReadExcelData(row, column++)); //4
+		
+		//Work Email
+		driver.findElement(By.xpath(config.getProperty("email"))).sendKeys(in.ReadExcelData(row, column++)); //5
 
-		// for testing purposes
-		pageLoad(60);
-		driver.findElement(By.xpath(config.getProperty("submit"))).click();
+		//Phone
+		driver.findElement(By.xpath(config.getProperty("phone"))).sendKeys(in.ReadExcelData(row, column++)); //6
+		
+		//Institution Name
+		driver.findElement(By.xpath(config.getProperty("institution"))).sendKeys(in.ReadExcelData(row, column++)); //7
+		
+		//Institution Type
+		Select iType = new Select(driver.findElement((By.xpath(config.getProperty("iType")))));
+		String iTypetext  = in.ReadExcelData(row, column++); //8
+		if (iTypetext != "") {
+			iType.selectByVisibleText(iTypetext);
+		}
+
+		//Discipline
+		Select discipline = new Select(driver.findElement(By.xpath(config.getProperty("discipline"))));
+		String disString = in.ReadExcelData(row, column++); //9
+		if (disString != "") {
+			discipline.selectByVisibleText(disString);
+		}
+
+		//Country
+		Select con = new Select(driver.findElement(By.xpath(config.getProperty("country"))));
+		String conText = in.ReadExcelData(row, column++); //10
+		if (conText != "") {
+			con.selectByVisibleText(conText);
+		}
+	
+		//State
+		try {
+			pageLoad(5);
+			Select st = new Select(driver.findElement(By.xpath(config.getProperty("state"))));
+			String stText = in.ReadExcelData(row, column); //11
+			if (stText != "") {
+				st.selectByVisibleText(stText);
+			}
+		}
+		catch (NoSuchElementException e) {
+		}
+	
+		pageLoad(30);
+		
+		try {
+			Robot robot = new Robot();
+			for (int i = 0; i < 3; i++) {
+				robot.keyPress(KeyEvent.VK_CONTROL);
+				robot.keyPress(KeyEvent.VK_SUBTRACT);
+				robot.keyRelease(KeyEvent.VK_SUBTRACT);
+				robot.keyRelease(KeyEvent.VK_CONTROL);
+			}
+		} catch (AWTException e1) {
+			e1.printStackTrace();
+		}
+		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,-400)");
+		js.executeScript("window.scrollBy(0,-200)");
+		
+		snap("Details" + row);
+	
+		try {
+			Robot robot = new Robot();
+			for (int i = 0; i < 3; i++) {
+				robot.keyPress(KeyEvent.VK_CONTROL);
+				robot.keyPress(KeyEvent.VK_ADD);
+				robot.keyRelease(KeyEvent.VK_ADD);
+				robot.keyRelease(KeyEvent.VK_CONTROL);
+			}
+		} catch (AWTException e1) {
+			e1.printStackTrace();
+		}
+
+		// for testing purposes
+		driver.findElement(By.xpath(config.getProperty("submit"))).click();
+		
+		js.executeScript("window.scrollBy(0,-200)");
+		
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		//snap("Data "+row+" Status");
+		snap("Data "+row+" Status");
 	}
 }
