@@ -27,21 +27,22 @@ public class CourseDetailsFunctionality extends BaseUi{
 	public void search(String testData) {
 		String searchLocator = config.getProperty("search");
 		waitElementClickable(searchLocator);
+		
+		highLighterMethod(searchLocator);
+		
 		driver.findElement(By.xpath(searchLocator)).clear();
 		driver.findElement(By.xpath(searchLocator)).sendKeys(testData);
-		snap("Search");
+		snap("search");
+		unHighLighterMethod(searchLocator);
 	}
 	/*
 	 * Click on Search button and take screenshot of the search results
 	 */
 	public void searchClick() {
+		
+		highLighterMethod(config.getProperty("searchButton"));
 		driver.findElement(By.xpath(config.getProperty("searchButton"))).click();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		snap("SearchResults");
+		unHighLighterMethod(config.getProperty("searchButton"));
 	}
 	
 	
@@ -53,15 +54,21 @@ public class CourseDetailsFunctionality extends BaseUi{
 		//Working with Language Drop Down box
 		String languageDropDown = config.getProperty("languageDrop");
 		waitElementClickable(languageDropDown);
-		driver.findElement(By.xpath(languageDropDown)).click();
 		
+		highLighterMethod(languageDropDown);
+		driver.findElement(By.xpath(languageDropDown)).click();
+		unHighLighterMethod(languageDropDown);
+		
+		waitElementClickable(config.getProperty("showAll"));
+		highLighterMethod(config.getProperty("showAll"));
 		driver.findElement(By.xpath(config.getProperty("showAll"))).click();
 		
 		//Select the language
 		List<WebElement> languages = driver.findElements(By.xpath(config.getProperty("languageList")));
-		snap("Language List");
+		snap("TC_FilterLanguage");
 		for (WebElement i : languages.subList(9, languages.size())) {
 			String choice=i.getAttribute("value");
+			highLighterMethod(i);
 			if(choice.equalsIgnoreCase(language)) {
 					i.click();
 					break;
@@ -77,13 +84,16 @@ public class CourseDetailsFunctionality extends BaseUi{
 	 */
 	public void filterLevel(String level) {
 		//Working with Level Checkbox
+		highLighterMethod(config.getProperty("levelBar"));
 		driver.findElement(By.xpath(config.getProperty("levelBar"))).click();
+		unHighLighterMethod(config.getProperty("levelBar"));
 		snap("Level List");
 		
 		//Select the level
 		List<WebElement> levels=driver.findElements(By.xpath(config.getProperty("levelList")));
 		for (WebElement i : levels) {
 			String choice=i.getAttribute("value");
+			highLighterMethod(i);
 			if(choice.equalsIgnoreCase(level)) {
 					i.click();
 					break;
@@ -126,7 +136,8 @@ public class CourseDetailsFunctionality extends BaseUi{
 			
 			driver.switchTo().window(tabsGUId.get(++tabNumber));	
 			
-			duration[i] = driver.findElement(By.cssSelector(config.getProperty("courseDuration"))).getText();
+			highLighterMethod(config.getProperty("courseDuration"));
+			duration[i] = driver.findElement(By.xpath(config.getProperty("courseDuration"))).getText();
 			
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,700)");

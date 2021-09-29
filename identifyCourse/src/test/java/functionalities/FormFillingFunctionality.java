@@ -25,13 +25,17 @@ public class FormFillingFunctionality extends BaseUi {
 	 */
 	public void navigateForm()
 	{
+		highLighterMethod(config.getProperty("enterpriseLink"));
 		driver.findElement(By.xpath(config.getProperty("enterpriseLink"))).click();
 		snap("Enterprise Page");
 		
 		WebElement course = driver.findElement(By.linkText("Products"));
+		highLighterMethod(course);
 		Actions action1 = new Actions(driver);
 		action1.moveToElement(course).build().perform();
 		
+		WebElement campus =  driver.findElement(By.linkText("For Campus"));
+		highLighterMethod(campus);
 		new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.linkText("For Campus"))).click();
 		
 		int tabNumber = 0;
@@ -51,59 +55,92 @@ public class FormFillingFunctionality extends BaseUi {
 		int column = 0;
 		
 		// First name
-		driver.findElement(By.xpath(config.getProperty("firstName"))).sendKeys(in.ReadExcelData(row, column++)); //1
+		WebElement fName = driver.findElement(By.xpath(config.getProperty("firstName")));
+		highLighterMethod(fName);
+		fName.sendKeys(in.ReadExcelData(row, column++)); //1
+		unHighLighterMethod(fName);
 		
 		//Last Name
-		driver.findElement(By.xpath(config.getProperty("lastName"))).sendKeys(in.ReadExcelData(row, column++)); //2
+		WebElement lName = driver.findElement(By.xpath(config.getProperty("lastName")));
+		highLighterMethod(lName);
+		lName.sendKeys(in.ReadExcelData(row, column++)); //2
+		unHighLighterMethod(lName);
 		
 		//Job Function
-		Select jf = new Select(driver.findElement(By.xpath(config.getProperty("jobFunction"))));
+		WebElement jfe = driver.findElement(By.xpath(config.getProperty("jobFunction")));
+		highLighterMethod(jfe);
+		Select jf = new Select(jfe);
 		String jfText = in.ReadExcelData(row, column++); //3
 		if (jfText != "") {
 			jf.selectByVisibleText(jfText);
 		}
+		unHighLighterMethod(jfe);
 		
 		//Job Title
-		driver.findElement(By.xpath(config.getProperty("jobTitle"))).sendKeys(in.ReadExcelData(row, column++)); //4
+		WebElement title = driver.findElement(By.xpath(config.getProperty("jobTitle")));
+		highLighterMethod(title);
+		title.sendKeys(in.ReadExcelData(row, column++)); //4
+		unHighLighterMethod(title);
 		
 		//Work Email
-		driver.findElement(By.xpath(config.getProperty("email"))).sendKeys(in.ReadExcelData(row, column++)); //5
+		WebElement email = driver.findElement(By.xpath(config.getProperty("email")));
+		highLighterMethod(email);
+		email.sendKeys(in.ReadExcelData(row, column++)); //5
+		unHighLighterMethod(email);
 
 		//Phone
-		driver.findElement(By.xpath(config.getProperty("phone"))).sendKeys(in.ReadExcelData(row, column++)); //6
+		WebElement phone = driver.findElement(By.xpath(config.getProperty("phone")));
+		highLighterMethod(phone);
+		phone.sendKeys(in.ReadExcelData(row, column++)); //6
+		unHighLighterMethod(phone);
 		
 		//Institution Name
-		driver.findElement(By.xpath(config.getProperty("institution"))).sendKeys(in.ReadExcelData(row, column++)); //7
+		WebElement inst = driver.findElement(By.xpath(config.getProperty("institution")));
+		highLighterMethod(inst);
+		inst.sendKeys(in.ReadExcelData(row, column++)); //7
+		unHighLighterMethod(inst);
 		
 		//Institution Type
-		Select iType = new Select(driver.findElement((By.xpath(config.getProperty("iType")))));
+		WebElement instType = driver.findElement((By.xpath(config.getProperty("iType"))));
+		highLighterMethod(instType);
+		Select iType = new Select(instType);
 		String iTypetext  = in.ReadExcelData(row, column++); //8
 		if (iTypetext != "") {
 			iType.selectByVisibleText(iTypetext);
 		}
+		unHighLighterMethod(instType);
 
 		//Discipline
-		Select discipline = new Select(driver.findElement(By.xpath(config.getProperty("discipline"))));
+		WebElement disc = driver.findElement(By.xpath(config.getProperty("discipline")));
+		highLighterMethod(disc);
+		Select discipline = new Select(disc);
 		String disString = in.ReadExcelData(row, column++); //9
 		if (disString != "") {
 			discipline.selectByVisibleText(disString);
 		}
+		unHighLighterMethod(disc);
 
 		//Country
-		Select con = new Select(driver.findElement(By.xpath(config.getProperty("country"))));
+		WebElement country = driver.findElement(By.xpath(config.getProperty("country")));
+		highLighterMethod(country);
+		Select con = new Select(country);
 		String conText = in.ReadExcelData(row, column++); //10
 		if (conText != "") {
 			con.selectByVisibleText(conText);
 		}
+		unHighLighterMethod(country);
 	
 		//State
 		try {
 			pageLoad(5);
-			Select st = new Select(driver.findElement(By.xpath(config.getProperty("state"))));
+			WebElement state = driver.findElement(By.xpath(config.getProperty("state")));
+			highLighterMethod(state);
+			Select st = new Select(state);
 			String stText = in.ReadExcelData(row, column); //11
 			if (stText != "") {
 				st.selectByVisibleText(stText);
 			}
+			unHighLighterMethod(state);
 		}
 		catch (NoSuchElementException e) {
 		}
@@ -140,7 +177,10 @@ public class FormFillingFunctionality extends BaseUi {
 		}
 
 		// for testing purposes
+		highLighterMethod(config.getProperty("submit"));
 		driver.findElement(By.xpath(config.getProperty("submit"))).click();
+		unHighLighterMethod(config.getProperty("submit"));
+
 		
 		js.executeScript("window.scrollBy(0,-200)");
 		

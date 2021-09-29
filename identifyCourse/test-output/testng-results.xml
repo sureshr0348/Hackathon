@@ -1,113 +1,189 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="11" passed="11" failed="0" skipped="0">
+<testng-results ignored="4" total="25" passed="21" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-09-28T12:24:22 IST" name="Default suite" finished-at="2021-09-28T12:26:28 IST" duration-ms="126059">
+  <suite started-at="2021-09-29T12:47:34 IST" name="Smoke_Suite" finished-at="2021-09-29T12:48:51 IST" duration-ms="77072">
     <groups>
     </groups>
-    <test started-at="2021-09-28T12:24:22 IST" name="Default test" finished-at="2021-09-28T12:26:28 IST" duration-ms="126059">
-      <class name="tests.TS_FormFillupInvalid">
-        <test-method is-config="true" signature="openWebsite()[pri:0, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:24:05 IST" name="openWebsite" finished-at="2021-09-28T12:24:22 IST" duration-ms="17179" status="PASS">
+    <test started-at="2021-09-29T12:47:34 IST" name="Smoke_Test" finished-at="2021-09-29T12:48:51 IST" duration-ms="77072">
+      <class name="tests.TS_CourseSearch">
+        <test-method is-config="true" signature="openWebsite()[pri:0, instance:tests.TS_CourseSearch@1725dc0f]" started-at="2021-09-29T12:47:23 IST" name="openWebsite" finished-at="2021-09-29T12:47:34 IST" duration-ms="11135" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openWebsite -->
-        <test-method is-config="true" signature="navigateToForm()[pri:0, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:24:22 IST" name="navigateToForm" finished-at="2021-09-28T12:24:32 IST" duration-ms="9474" status="PASS">
+        <test-method is-config="true" signature="TC_initiateCourse()[pri:0, instance:tests.TS_CourseSearch@1725dc0f]" started-at="2021-09-29T12:47:34 IST" name="TC_initiateCourse" finished-at="2021-09-29T12:47:34 IST" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_initiateCourse -->
+        <test-method signature="TC_SearchTextBox()[pri:1, instance:tests.TS_CourseSearch@1725dc0f]" started-at="2021-09-29T12:47:34 IST" name="TC_SearchTextBox" finished-at="2021-09-29T12:47:45 IST" duration-ms="10676" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_SearchTextBox -->
+        <test-method signature="TC_FilterLanguage()[pri:2, instance:tests.TS_CourseSearch@1725dc0f]" started-at="2021-09-29T12:47:46 IST" name="TC_FilterLanguage" finished-at="2021-09-29T12:47:51 IST" duration-ms="4653" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_FilterLanguage -->
+        <test-method signature="TC_FilterLevel()[pri:3, instance:tests.TS_CourseSearch@1725dc0f]" started-at="2021-09-29T12:47:51 IST" name="TC_FilterLevel" finished-at="2021-09-29T12:47:54 IST" duration-ms="2611" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_FilterLevel -->
+        <test-method signature="TC_CourseAvailability()[pri:4, instance:tests.TS_CourseSearch@1725dc0f]" started-at="2021-09-29T12:47:57 IST" name="TC_CourseAvailability" finished-at="2021-09-29T12:47:57 IST" duration-ms="505" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_CourseAvailability -->
+        <test-method signature="TC_CourseDuration()[pri:5, instance:tests.TS_CourseSearch@1725dc0f]" started-at="2021-09-29T12:47:58 IST" name="TC_CourseDuration" finished-at="2021-09-29T12:48:09 IST" duration-ms="11266" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_CourseDuration -->
+        <test-method is-config="true" signature="exitBrowser()[pri:0, instance:tests.TS_CourseSearch@1725dc0f]" started-at="2021-09-29T12:48:51 IST" name="exitBrowser" finished-at="2021-09-29T12:48:53 IST" duration-ms="1457" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exitBrowser -->
+      </class> <!-- tests.TS_CourseSearch -->
+      <class name="tests.TS_Filter">
+        <test-method is-config="true" signature="TC_initiateClasses()[pri:0, instance:tests.TS_Filter@3911c2a7]" started-at="2021-09-29T12:47:34 IST" name="TC_initiateClasses" finished-at="2021-09-29T12:47:34 IST" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_initiateClasses -->
+        <test-method signature="languagesDisplayed()[pri:1, instance:tests.TS_Filter@3911c2a7]" started-at="2021-09-29T12:48:09 IST" name="languagesDisplayed" finished-at="2021-09-29T12:48:24 IST" duration-ms="14677" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- languagesDisplayed -->
+        <test-method signature="extractLanguageDetails()[pri:2, instance:tests.TS_Filter@3911c2a7]" started-at="2021-09-29T12:48:24 IST" name="extractLanguageDetails" finished-at="2021-09-29T12:48:28 IST" duration-ms="3538" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- extractLanguageDetails -->
+        <test-method signature="levelsDisplayed()[pri:3, instance:tests.TS_Filter@3911c2a7]" started-at="2021-09-29T12:48:28 IST" name="levelsDisplayed" finished-at="2021-09-29T12:48:28 IST" duration-ms="112" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- levelsDisplayed -->
+        <test-method signature="extractLevelsDetails()[pri:4, instance:tests.TS_Filter@3911c2a7]" started-at="2021-09-29T12:48:28 IST" name="extractLevelsDetails" finished-at="2021-09-29T12:48:29 IST" duration-ms="211" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- extractLevelsDetails -->
+      </class> <!-- tests.TS_Filter -->
+      <class name="tests.TS_FormFillupValid">
+        <test-method is-config="true" signature="TC_initiateCourse()[pri:0, instance:tests.TS_FormFillupValid@4ac3c60d]" started-at="2021-09-29T12:47:34 IST" name="TC_initiateCourse" finished-at="2021-09-29T12:47:34 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_initiateCourse -->
+        <test-method signature="TC_validData()[pri:1, instance:tests.TS_FormFillupValid@4ac3c60d]" started-at="2021-09-29T12:48:29 IST" name="TC_validData" finished-at="2021-09-29T12:48:50 IST" duration-ms="21686" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_validData -->
+      </class> <!-- tests.TS_FormFillupValid -->
+    </test> <!-- Smoke_Test -->
+  </suite> <!-- Smoke_Suite -->
+  <suite started-at="2021-09-29T12:51:08 IST" name="Hackathon_DataDriver" finished-at="2021-09-29T12:51:08 IST" duration-ms="0">
+    <groups>
+    </groups>
+  </suite> <!-- Hackathon_DataDriver -->
+  <suite started-at="2021-09-29T12:49:02 IST" name="Regression_Suite" finished-at="2021-09-29T12:51:07 IST" duration-ms="124389">
+    <groups>
+    </groups>
+    <test started-at="2021-09-29T12:49:02 IST" name="Regresion_Test" finished-at="2021-09-29T12:51:07 IST" duration-ms="124389">
+      <class name="tests.TS_FormFillupInvalid">
+        <test-method is-config="true" signature="openWebsite()[pri:0, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:48:53 IST" name="openWebsite" finished-at="2021-09-29T12:49:02 IST" duration-ms="9451" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openWebsite -->
+        <test-method is-config="true" signature="navigateToForm()[pri:0, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:49:02 IST" name="navigateToForm" finished-at="2021-09-29T12:49:12 IST" duration-ms="9910" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navigateToForm -->
-        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:24:32 IST" name="refreshpage" finished-at="2021-09-28T12:24:39 IST" duration-ms="7716" status="PASS">
+        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:49:12 IST" name="refreshpage" finished-at="2021-09-29T12:49:20 IST" duration-ms="7815" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- refreshpage -->
-        <test-method signature="TC_InvalidEmail()[pri:1, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:24:39 IST" name="TC_InvalidEmail" finished-at="2021-09-28T12:24:48 IST" duration-ms="8755" status="PASS">
+        <test-method signature="TC_InvalidFirstName()[pri:1, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:49:20 IST" name="TC_InvalidFirstName" finished-at="2021-09-29T12:49:27 IST" duration-ms="7255" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_InvalidFirstName -->
+        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:49:28 IST" name="refreshpage" finished-at="2021-09-29T12:49:28 IST" duration-ms="12" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- refreshpage -->
+        <test-method signature="TC_InvalidLastName()[pri:2, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:49:28 IST" name="TC_InvalidLastName" finished-at="2021-09-29T12:49:37 IST" duration-ms="9075" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_InvalidLastName -->
+        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:49:37 IST" name="refreshpage" finished-at="2021-09-29T12:49:37 IST" duration-ms="11" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- refreshpage -->
+        <test-method signature="TC_InvalidJobFunction()[pri:3, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:49:37 IST" name="TC_InvalidJobFunction" finished-at="2021-09-29T12:49:46 IST" duration-ms="8870" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_InvalidJobFunction -->
+        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:49:46 IST" name="refreshpage" finished-at="2021-09-29T12:49:46 IST" duration-ms="13" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- refreshpage -->
+        <test-method signature="TC_InvalidJobTitle()[pri:4, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:49:46 IST" name="TC_InvalidJobTitle" finished-at="2021-09-29T12:49:55 IST" duration-ms="9305" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_InvalidJobTitle -->
+        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:49:56 IST" name="refreshpage" finished-at="2021-09-29T12:49:58 IST" duration-ms="2632" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- refreshpage -->
+        <test-method signature="TC_InvalidEmail()[pri:5, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:49:58 IST" name="TC_InvalidEmail" finished-at="2021-09-29T12:50:05 IST" duration-ms="6323" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC_InvalidEmail -->
-        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:24:48 IST" name="refreshpage" finished-at="2021-09-28T12:24:48 IST" duration-ms="19" status="PASS">
+        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:50:05 IST" name="refreshpage" finished-at="2021-09-29T12:50:05 IST" duration-ms="11" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- refreshpage -->
-        <test-method signature="TC_wrongData1()[pri:2, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:24:48 IST" name="TC_wrongData1" finished-at="2021-09-28T12:24:58 IST" duration-ms="9484" status="PASS">
+        <test-method signature="TC_InvalidPhoneNo()[pri:6, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:50:05 IST" name="TC_InvalidPhoneNo" finished-at="2021-09-29T12:50:14 IST" duration-ms="9061" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_wrongData1 -->
-        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:24:58 IST" name="refreshpage" finished-at="2021-09-28T12:24:58 IST" duration-ms="15" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- refreshpage -->
-        <test-method signature="TC_wrongData2()[pri:3, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:24:58 IST" name="TC_wrongData2" finished-at="2021-09-28T12:25:07 IST" duration-ms="9380" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_wrongData2 -->
-        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:25:07 IST" name="refreshpage" finished-at="2021-09-28T12:25:07 IST" duration-ms="12" status="PASS">
+        </test-method> <!-- TC_InvalidPhoneNo -->
+        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:50:14 IST" name="refreshpage" finished-at="2021-09-29T12:50:14 IST" duration-ms="11" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- refreshpage -->
-        <test-method signature="TC_wrongData3()[pri:4, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:25:07 IST" name="TC_wrongData3" finished-at="2021-09-28T12:25:17 IST" duration-ms="9690" status="PASS">
+        <test-method signature="TC_InvalidInstitutionName()[pri:7, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:50:14 IST" name="TC_InvalidInstitutionName" finished-at="2021-09-29T12:50:23 IST" duration-ms="8619" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_wrongData3 -->
-        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:25:17 IST" name="refreshpage" finished-at="2021-09-28T12:25:17 IST" duration-ms="13" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- refreshpage -->
-        <test-method signature="TC_wrongData4()[pri:5, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:25:17 IST" name="TC_wrongData4" finished-at="2021-09-28T12:25:26 IST" duration-ms="9544" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_wrongData4 -->
-        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:25:26 IST" name="refreshpage" finished-at="2021-09-28T12:25:26 IST" duration-ms="14" status="PASS">
+        </test-method> <!-- TC_InvalidInstitutionName -->
+        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:50:23 IST" name="refreshpage" finished-at="2021-09-29T12:50:23 IST" duration-ms="8" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- refreshpage -->
-        <test-method signature="TC_wrongData5()[pri:6, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:25:26 IST" name="TC_wrongData5" finished-at="2021-09-28T12:25:36 IST" duration-ms="9811" status="PASS">
+        <test-method signature="TC_InvalidInstitutionType()[pri:8, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:50:23 IST" name="TC_InvalidInstitutionType" finished-at="2021-09-29T12:50:33 IST" duration-ms="9888" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_wrongData5 -->
-        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:25:36 IST" name="refreshpage" finished-at="2021-09-28T12:25:36 IST" duration-ms="12" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- refreshpage -->
-        <test-method signature="TC_wrongData6()[pri:7, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:25:36 IST" name="TC_wrongData6" finished-at="2021-09-28T12:25:46 IST" duration-ms="9672" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_wrongData6 -->
-        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:25:46 IST" name="refreshpage" finished-at="2021-09-28T12:25:46 IST" duration-ms="14" status="PASS">
+        </test-method> <!-- TC_InvalidInstitutionType -->
+        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:50:33 IST" name="refreshpage" finished-at="2021-09-29T12:50:33 IST" duration-ms="10" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- refreshpage -->
-        <test-method signature="TC_wrongData7()[pri:8, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:25:46 IST" name="TC_wrongData7" finished-at="2021-09-28T12:25:55 IST" duration-ms="8998" status="PASS">
+        <test-method signature="TC_InvalidPrimaryDiscipline()[pri:9, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:50:33 IST" name="TC_InvalidPrimaryDiscipline" finished-at="2021-09-29T12:50:42 IST" duration-ms="8688" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_wrongData7 -->
-        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:25:55 IST" name="refreshpage" finished-at="2021-09-28T12:25:55 IST" duration-ms="12" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- refreshpage -->
-        <test-method signature="TC_wrongData8()[pri:9, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:25:55 IST" name="TC_wrongData8" finished-at="2021-09-28T12:26:04 IST" duration-ms="9285" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_wrongData8 -->
-        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:26:04 IST" name="refreshpage" finished-at="2021-09-28T12:26:07 IST" duration-ms="2854" status="PASS">
+        </test-method> <!-- TC_InvalidPrimaryDiscipline -->
+        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:50:42 IST" name="refreshpage" finished-at="2021-09-29T12:50:42 IST" duration-ms="10" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- refreshpage -->
-        <test-method signature="TC_wrongData9()[pri:10, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:26:07 IST" name="TC_wrongData9" finished-at="2021-09-28T12:26:19 IST" duration-ms="11676" status="PASS">
+        <test-method signature="TC_InvalidCountry()[pri:10, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:50:42 IST" name="TC_InvalidCountry" finished-at="2021-09-29T12:50:57 IST" duration-ms="14859" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_wrongData9 -->
-        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:26:19 IST" name="refreshpage" finished-at="2021-09-28T12:26:19 IST" duration-ms="11" status="PASS">
+        </test-method> <!-- TC_InvalidCountry -->
+        <test-method is-config="true" signature="refreshpage()[pri:0, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:50:57 IST" name="refreshpage" finished-at="2021-09-29T12:50:57 IST" duration-ms="11" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- refreshpage -->
-        <test-method signature="TC_wrongData10()[pri:11, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:26:19 IST" name="TC_wrongData10" finished-at="2021-09-28T12:26:28 IST" duration-ms="9465" status="PASS">
+        <test-method signature="TC_InvalidState()[pri:11, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:50:57 IST" name="TC_InvalidState" finished-at="2021-09-29T12:51:07 IST" duration-ms="9290" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_wrongData10 -->
-        <test-method is-config="true" signature="exitBrowser()[pri:0, instance:tests.TS_FormFillupInvalid@4da4253]" started-at="2021-09-28T12:26:28 IST" name="exitBrowser" finished-at="2021-09-28T12:26:30 IST" duration-ms="1767" status="PASS">
+        </test-method> <!-- TC_InvalidState -->
+        <test-method is-config="true" signature="exitBrowser()[pri:0, instance:tests.TS_FormFillupInvalid@384ad17b]" started-at="2021-09-29T12:51:07 IST" name="exitBrowser" finished-at="2021-09-29T12:51:08 IST" duration-ms="1518" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- exitBrowser -->
       </class> <!-- tests.TS_FormFillupInvalid -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Regresion_Test -->
+  </suite> <!-- Regression_Suite -->
 </testng-results>

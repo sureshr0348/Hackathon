@@ -13,22 +13,26 @@ public class FilterFunctionality extends BaseUi {
     public void setLanguage() {
         // Wait till element gets click-able
         waitElementClickable(config.getProperty("languageDrop"));
-
+        highLighterMethod(config.getProperty("languageDrop"));
+        
         // Find and Click Drop Down language filter
         driver.findElement(By.xpath(config.getProperty("languageDrop"))).click();
         snap("Language DropDown");
+        unHighLighterMethod(config.getProperty("languageDrop"));
 
         // Find SHOW ALL element and click it
         waitElementClickable(config.getProperty("showAll"));
+        highLighterMethod(config.getProperty("showAll"));
+        driver.findElement(By.xpath(config.getProperty("showAll"))).click();
 
-        Boolean present = false;
+       /* Boolean present = false;
         WebElement display = driver.findElement(By.xpath(config.getProperty("showAll")));
         present = display.isDisplayed();
         display.click();
         if (present)
             System.out.println("Langugaes are Displayed");
         else
-            System.out.println("Languages are not Displayed");
+            System.out.println("Languages are not Displayed"); */
     }
 
  
@@ -39,12 +43,10 @@ public class FilterFunctionality extends BaseUi {
         List<WebElement> languages = driver.findElements(By.xpath(config.getProperty("languageList")));
         List<WebElement> langCounts = driver.findElements(By.xpath(config.getProperty("languageListCount")));
 
- 
 
         LinkedHashMap<String, String> languageMap = new LinkedHashMap<String, String>();
         System.out.println("Languages and their course count");
 
- 
 
         // Convert list to map, to store in excel file
         languageMap = ConvertToMap.convert(languages, langCounts);
@@ -62,15 +64,16 @@ public class FilterFunctionality extends BaseUi {
 
     public void setLevels() {
 
-        waitElementClickable(config.getProperty("show"));
-
-        driver.findElement(By.xpath(config.getProperty("show"))).click();
+    	highLighterMethod(config.getProperty("levelBar"));
+		driver.findElement(By.xpath(config.getProperty("levelBar"))).click();
+    	
+        /*
         Boolean present = false;
         present = driver.findElements(By.xpath(config.getProperty("levelList"))).size() != 0;
         if (present)
             System.out.println("Levels are Displayed");
         else
-            System.out.println("Levels are not Displayed");
+            System.out.println("Levels are not Displayed");*/
     }
 
  

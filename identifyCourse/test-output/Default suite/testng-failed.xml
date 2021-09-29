@@ -3,14 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.TS_FormFillupValid">
+      <class name="tests.TS_Filter">
         <methods>
           <include name="openWebsite"/>
-          <include name="TC_initiateCourse"/>
-          <include name="TC_validData"/>
+          <include name="levelsDisplayed"/>
           <include name="exitBrowser"/>
+          <include name="TC_initiateClasses"/>
+          <include name="extractLevelsDetails"/>
         </methods>
-      </class> <!-- tests.TS_FormFillupValid -->
+      </class> <!-- tests.TS_Filter -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
